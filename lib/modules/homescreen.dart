@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:heart_defence/modules/dataTakeScreen.dart';
+import 'package:heart_defence/modules/data_take_screen.dart';
 import 'package:heart_defence/shared/components.dart';
 
 class HomePage extends StatelessWidget {
@@ -57,7 +57,7 @@ class HomePage extends StatelessWidget {
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
                 ),
               ),
-            ),
+            )
           ],
         ),
       ),
