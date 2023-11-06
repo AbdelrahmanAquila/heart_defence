@@ -11,15 +11,17 @@ class ClintDataScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (BuildContext context) => AppCubit(),
-      child: BlocConsumer<AppCubit, AppStates>(
-        listener: (context, state) {},
-        builder: (context, state) => Scaffold(
-          body: Padding(
-            padding:
-                const EdgeInsets.only(top: 40, bottom: 20, left: 20, right: 20),
-            child: SingleChildScrollView(
+    final formKey = GlobalKey<FormState>();
+
+    return BlocConsumer<AppCubit, AppStates>(
+      listener: (context, state) {},
+      builder: (context, state) => Scaffold(
+        body: Padding(
+          padding:
+              const EdgeInsets.only(top: 40, bottom: 20, left: 20, right: 20),
+          child: SingleChildScrollView(
+            child: Form(
+              key: formKey,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -100,8 +102,14 @@ class ClintDataScreen extends StatelessWidget {
                       ),
                       Expanded(
                         child: SizedBox(
-                          height: 60,
+                          // height: 60,
                           child: TextFormField(
+                            validator: (value) {
+                              if (value!.isEmpty) {
+                                return 'يجب كتابة السن';
+                              }
+                              return null;
+                            },
                             controller: AppCubit.get(context).ageController,
                             onChanged: (value) {
                               print(value);
@@ -169,7 +177,9 @@ class ClintDataScreen extends StatelessWidget {
                     width: double.infinity,
                     child: ElevatedButton(
                       onPressed: () {
-                        navigateTo(context, const BloodAnalysisScreen());
+                        if (formKey.currentState!.validate()) {
+                          navigateTo(context, const BloodAnalysisScreen());
+                        }
                       },
                       child: const Text(
                         'متابعة',

@@ -38,7 +38,57 @@ Widget genderSelect(
         ),
       ),
     );
+Widget dataSlider(context,
+        {required double slider,
+        required String text,
+        required double min,
+        required double max,
+        required void Function(double)? onChanged,
+        int? divisions,
+        String? lable}) =>
+    Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Text(text, style: Theme.of(context).textTheme.headlineMedium),
+        Slider(
+            min: min,
+            max: max,
+            value: slider,
+            label: lable,
+            divisions: divisions,
+            onChanged: onChanged),
+        const Divider(
+          color: Colors.black,
+          thickness: 2,
+        ),
+      ],
+    );
 
+Widget radioSelect(context,
+        {required String title,
+        required var selectedValue,
+        required void Function(dynamic)? function}) =>
+    Column(
+      children: [
+        Text(title, style: Theme.of(context).textTheme.headlineMedium),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text('Yes', style: Theme.of(context).textTheme.headlineSmall),
+            Radio(value: 1, groupValue: selectedValue, onChanged: function),
+            const SizedBox(
+              width: 30,
+            ),
+            Radio(value: 0, groupValue: selectedValue, onChanged: function),
+            Text('No', style: Theme.of(context).textTheme.headlineSmall),
+          ],
+        ),
+        const Divider(
+          color: Colors.black,
+          thickness: 2,
+        ),
+      ],
+    );
 // Widget contenueButton(void onTap, String text) => SizedBox(
 //       height: 50,
 //       width: double.infinity,
