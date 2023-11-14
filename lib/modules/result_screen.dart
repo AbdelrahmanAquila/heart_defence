@@ -12,9 +12,6 @@ class ResultScreen extends StatelessWidget {
         listener: (context, state) {},
         builder: (context, state) {
           return Scaffold(
-            floatingActionButton: FloatingActionButton(onPressed: () {
-              AppCubit.get(context).request();
-            }),
             body: Center(
               child: Text(AppCubit.get(context).predict.toString(),
                   style: Theme.of(context)

@@ -143,6 +143,7 @@ class AppCubit extends Cubit<AppStates> {
       response,
     ));
     predict = response.data.toString();
+    // print('Your Predict is \n $predict');
     print('Your Predict is \n $predict');
 
     emit(ResponseState(

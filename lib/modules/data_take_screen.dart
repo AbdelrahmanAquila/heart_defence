@@ -64,7 +64,7 @@ class ClintDataScreen extends StatelessWidget {
                                   builder: (context) => AlertDialog(
                                     title: const Text('محتاجين التحاليل دي'),
                                     content: const Text(
-                                        'كابشن يا نجم احنا لسة بنtest'),
+                                        '-Chest Pain Type\n-Resting Blood Pressure\n-Cholestrol\n-Fasting Blood Suger\n-Resting Cardiogragh\nMaximum Heart Rate\n-Exercies Induced Angina\n-Slope Of The Peak\n-Number of Colored Heart Vesseles\n-Thalum'),
                                     actions: [
                                       TextButton(
                                           onPressed: () {
